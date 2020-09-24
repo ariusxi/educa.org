@@ -20,55 +20,13 @@ header {
 header .brand-logo {
     width: 120px;
     text-align: center;
-    line-height:60px;
+    padding: 17px 10px;
 }
 
 header .brand-logo a {
     text-decoration: none;
     color: var(--color-white);
     font-size: 1.5rem;
-}
-
-.collapse-main {
-    width: 100%;
-    display: block;
-    text-align: center;
-    height: 300px;
-    
-    background-image: var(--image-parallax-main);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.collapse-main h1 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    
-    position:relative;
-    top:50%;
-    margin-top: -33.6px;
-
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    color: var(--color-grey);
-
-    box-shadow: var(--image-parallax-main);
-}
-
-.container{
-    width: 100%;
-    padding:20px;
-    box-sizing: border-box;
-}
-
-.content-cards,
-.content-list-courses {
-    float: left;
-}
-
-.content-cards{
-    background-color: var(--color-grey);
 }
 
 .content-list-courses {
@@ -79,32 +37,33 @@ header .brand-logo a {
     flex-flow: column nowrap;
 }
 
-.content-header-courses,
-.content-body-courses,
-.content-header-list,
+.content-cards-courses,
 .content-list-courses {
+    padding: 10px;
+}
+
+.content-cards-courses{
     width:100%;
     position:relative;
     display:block;
+
+    background-color: var(--color-grey);
 }
 
-.content-header-courses h1,
-.content-header-courses label,
-.content-header-list h1 {
+.content-cards-courses .list-title,
+.content-cards-courses .list-subtitle,
+.content-list-courses .list-title,
+.content-list-courses .list-subtitle {
     padding-left: 10px;
 }
 
-.content-body-courses {
-    margin-top: 15px;
-}
-
-.content-body-courses .card-course{
+.content-cards-courses .card-course{
     width:100%;
     position: relative;
-    min-height: 490px;
+    min-height: 420px;
 }
 
-.content-body-courses .card-course {
+.content-cards-courses .card-course {
     background-color: var(--color-white);
     box-shadow: var(--box-shadow-default);
     border: 1px solid var(--color-grey);
@@ -114,63 +73,65 @@ header .brand-logo a {
     margin-bottom: 30px;
 }
 
-.content-body-courses .card-course .card-image {
+.content-cards-courses .card-course .card-image {
     width: 100%;
 }
 
-.content-body-courses .card-course .card-image img {
+.content-cards-courses .card-course .card-image img {
     width: 100%;
     border-radius: 5px 5px 0 0;
     
     border-bottom: 3px solid var(--color-navbar);
 }
 
-.content-body-courses .card-course .card-content {
+.content-cards-courses .card-course .card-content {
     padding: 10px;
 }
 
-.content-body-courses .card-course .card-content > label {
+.content-cards-courses .card-course .card-content > label {
     font-size: 2rem;
     text-overflow: ellipsis;
     position:relative;
     font-weight: 600;
 }
 
-.content-body-courses .card-course .card-content > h4 {
+.content-cards-courses .card-course .card-content > h4 {
     padding-top: 5px;
     font-size: 1.5rem;
     font-weight: 400;
 }
 
-.content-body-courses .card-course .card-content > ul {
+.content-cards-courses .card-course .card-content > ul {
     margin-top: 5px;
     list-style-type: none;
 
     border-bottom: 1px solid var(--color-grey);
 }
 
-.content-body-courses .card-course .card-content > ul li {
+.content-cards-courses .card-course .card-content > ul li {
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
 
-.content-body-courses .card-course .card-content > p {
+.content-cards-courses .card-course .card-content > p {
     margin-top: 5px;
 }
 
-.content-body-courses .card-course .card-footer {
+.content-cards-courses .card-course .card-course-footer {
     width: 100%;
-    position: absolute;
     padding: 5px;
     bottom: 0;
+    position: absolute;
 }
 
-.content-body-courses .card-course .card-footer a {
-    width: 50px;
+.content-cards-courses .card-course .card-course-footer a {
+    width: 130px;
     background-color: var(--color-navbar);
     color: var(--color-white);
     display: block;
     padding: 10px 30px;
+    border-top-width: 0px;
+    border-bottom: 3px solid var(--color-navbar-dark);
 
     transition: .2s background-color;
 
@@ -178,16 +139,15 @@ header .brand-logo a {
     text-align: center;
     
     font-weight: 600;
-    border-radius: 5px;
     text-transform: uppercase;
 }
 
-.content-body-courses .card-course .card-footer a:hover {
+.content-cards-courses .card-course .card-course-footer a:hover {
     background-color: var(--color-navbar-light);
 }
 
-.content-header-courses h1,
-.content-header-list h1 {
+.content-cards-courses h1,
+.content-list-courses h1 {
     border-left: 3px solid var(--color-navbar);
 }
 
@@ -230,6 +190,10 @@ ul.content-list-courses > li.content-list-course-item .content-list-course-image
 ul.content-list-courses > li.content-list-course-item .content-list-course-description {
     width: calc(100% - 120px);
     padding: 10px 5px;
+}
+
+ul.content-list-courses > li.content-list-course-item .content-list-course-description .course-item-title {
+    margin-bottom: 0px;
 }
 
 ul.content-list-courses > li.content-list-course-item .content-list-course-description .course-item-title > a {
@@ -308,9 +272,15 @@ footer .footer-contact.footer-telephone {
 }
 
 @media screen and (min-width: 780px) {
-    .container {
-        width: 80%;
-        margin: 0 auto;
+    .carousel .carousel-item {
+        height: 400px;
+    }
+    
+    .carousel-item img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-height: 400px;
     }
 
     .content-body-courses .card-course {
@@ -320,7 +290,7 @@ footer .footer-contact.footer-telephone {
     }
 
     ul.content-list-courses > li.content-list-course-item .content-list-course-description {
-        width: calc(100% - 235px);
+        width: calc(100% - 90px);
         padding: 10px 5px;
     }
 
@@ -335,10 +305,10 @@ footer .footer-contact.footer-telephone {
     footer .footer-copyright {
         text-align: left;
         padding-left: 10px;
-        width: 60%;
+        width: 50%;
     }
 
     footer .footer-contact {
-        width: 20%;
+        width: 25%;
     }
 }
